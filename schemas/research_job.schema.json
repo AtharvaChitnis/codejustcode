@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/research_job.schema.json",
+  "title": "ResearchJob",
+  "type": "object",
+  "required": ["research_id", "tenant_id", "status", "job_version"],
+  "properties": {
+    "research_id": {"type": "string"},
+    "tenant_id": {"type": "string"},
+    "status": {
+      "type": "string",
+      "enum": ["CREATED","PLANNING","COLLECTING","PROCESSING","POPULATION_BUILD","SIMULATING","ANALYZING","VALIDATING","PUBLISHING","COMPLETED","RETRYING","CANCELLING","CANCELLED","BLOCKED","FAILED"]
+    },
+    "job_version": {"type": "integer", "minimum": 1},
+    "created_at": {"type": "string", "format": "date-time"},
+    "policy_version": {"type": "string"},
+    "plan_artifact_id": {"type": ["string","null"]},
+    "manifest_artifact_id": {"type": ["string","null"]}
+  },
+  "additionalProperties": false
+}
