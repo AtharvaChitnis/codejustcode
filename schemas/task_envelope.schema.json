@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/task_envelope.schema.json",
+  "title": "TaskEnvelope",
+  "type": "object",
+  "required": ["research_id","job_version","task_id","task_type","attempt","idempotency_key","tenant_id","policy_version"],
+  "properties": {
+    "research_id": {"type": "string"},
+    "job_version": {"type": "integer", "minimum": 1},
+    "task_id": {"type": "string"},
+    "task_type": {"type": "string"},
+    "attempt": {"type": "integer", "minimum": 1},
+    "idempotency_key": {"type": "string"},
+    "tenant_id": {"type": "string"},
+    "input_artifact_ids": {"type": "array", "items": {"type": "string"}},
+    "policy_version": {"type": "string"},
+    "deadline": {"type": ["string","null"], "format": "date-time"}
+  },
+  "additionalProperties": false
+}
